@@ -36,11 +36,11 @@ section {
     border: solid 2px var(--color1);
 }
 
-#high-or-low-span {
+#new-number-button {
     display: none;
 }
 
-#tries-left-p {
+#high-or-low-span {
     display: none;
 }
 
