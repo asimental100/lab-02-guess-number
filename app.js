@@ -16,6 +16,12 @@ const winner = document.getElementById('winner-header');
 const loser = document.getElementById('loser-header');
 const correctNumberSpan = document.getElementById('correct-number-span');
 
+let winNum = document.getElementById('games-won');
+let loseNum = document.getElementById('games-lost');
+
+let winSpan = document.getElementById('games-won-span');
+let loseSpan = document.getElementById('games-lost-span');
+
 // initialize state
 
 let correctNumber = Math.ceil(Math.random() * 20);
@@ -24,6 +30,10 @@ let correctNumber = Math.ceil(Math.random() * 20);
 
 let triesLeft = Number(4);
 triesLeftSpan.textContent = triesLeft;
+
+let winCounter = 0;
+let loseCounter = 0;
+
 
 // set event listeners to update state and DOM
 
@@ -45,6 +55,7 @@ guessButton.addEventListener('click', () => {
         newNumberButton.style.display = 'flex';
         highOrLow.style.display = 'none';
         triesLeftP.style.visibility = 'hidden';
+        winCounter++;
     }
     else if (comparision === -1) {
         highOrLow.style.display = 'flex';
@@ -60,6 +71,7 @@ guessButton.addEventListener('click', () => {
         loser.style.display = 'flex';
         guessButton.style.display = 'none';
         newNumberButton.style.display = 'flex';
+        loseCounter++;
     }
 
 })
@@ -78,4 +90,8 @@ newNumberButton.addEventListener('click', () => {
     console.log(correctNumber);
     triesLeftP.style.visibility = 'visible';
     guessNumber.value = 0;
+    winNum.textContent = winCounter;
+    loseNum.textContent = loseCounter;
+    winSpan.style.display = 'flex';
+    loseSpan.style.display = 'flex';
 }) 
