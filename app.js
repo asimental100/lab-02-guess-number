@@ -35,14 +35,10 @@ guessButton.addEventListener('click', () => {
     triesLeft--;
     triesLeftSpan.textContent = triesLeft;
 
-    if (triesLeft === 0) {
-        winOrLose.style.display = 'flex';
-        loser.style.display = 'flex';
-        guessButton.style.display = 'none';
-        newNumberButton.style.display = 'flex';
-    }
+    let comparision = compareNumbers(guess, correctNumber);
+    console.log(comparision);
 
-    if (Number(guess) === Number(correctNumber)) {
+    if (comparision === 0) {
         winOrLose.style.display = 'flex';
         winner.style.display = 'flex';
         guessButton.style.display = 'none';
@@ -50,13 +46,20 @@ guessButton.addEventListener('click', () => {
         highOrLow.style.display = 'none';
         triesLeftP.style.visibility = 'hidden';
     }
-    else if (Number(correctNumber) > Number(guess)) {
+    else if (comparision === -1) {
         highOrLow.style.display = 'flex';
         highOrLow.textContent = "Too Low";
     }
-    else if (Number(correctNumber) < Number(guess)) {
+    else if (comparision === 1) {
         highOrLow.style.display = 'flex';
         highOrLow.textContent = "Too High";
+    }
+
+    if (triesLeft === 0 && comparision !== 0) {
+        winOrLose.style.display = 'flex';
+        loser.style.display = 'flex';
+        guessButton.style.display = 'none';
+        newNumberButton.style.display = 'flex';
     }
 
 })
@@ -73,4 +76,6 @@ newNumberButton.addEventListener('click', () => {
     correctNumber = Math.ceil(Math.random() * 20);
     correctNumberSpan.textContent = correctNumber;
     console.log(correctNumber);
+    triesLeftP.style.visibility = 'visible';
+    guessNumber.value = 0;
 }) 
