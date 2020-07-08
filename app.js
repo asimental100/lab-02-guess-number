@@ -11,48 +11,43 @@ const winner = document.getElementById('winner-header');
 const loser = document.getElementById('loser-header');
 const correctNumberSpan = document.getElementById('correct-number-span');
 
+// initialize state
+
 let correctNumber = Math.ceil(Math.random() * 20);
 
 let triesLeft = Number(4);
 triesLeftSpan.textContent = triesLeft;
 
-
-// initialize state
-
 // set event listeners to update state and DOM
 
 guessButton.addEventListener('click', () => {
-    highOrLow.style.display = 'flex';
-    highOrLow.textContent = guessNumber;
-
+    console.log(guessNumber);
     correctNumberSpan.textContent = correctNumber;
-
-    compareNumbers(guessNumber, correctNumber);
     
     triesLeft--;
     triesLeftSpan.textContent = triesLeft;
 
-    if (compareNumbers === 0) {
+    if (triesLeft === 0) {
+        winOrLose.style.display = 'flex';
+        loser.style.display = 'flex';
+        guessButton.style.display = 'none';
+        newNumberButton.style.display = 'flex';
+    }
+
+    if (correctNumber === guessNumber) {
         winOrLose.style.display = 'flex';
         winner.style.display = 'flex';
         guessButton.style.display = 'none';
         newNumberButton.style.display = 'flex';
     }
-    if (compareNumbers === -1) {
+    else if (correctNumber > guessNumber) {
         highOrLow.style.display = 'flex';
         highOrLow.textContent = "Too Low";
     }
-    if (compareNumbers === 1) {
+    else if (correctNumber < guessNumber) {
         highOrLow.style.display = 'flex';
         highOrLow.textContent = "Too High";
     }
-
-    if (triesLeft === 0) {
-       winOrLose.style.display = 'flex';
-       loser.style.display = 'flex';
-       guessButton.style.display = 'none';
-       newNumberButton.style.display = 'flex';
-   }
 
 }) 
 
