@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { compareNumbers } from './utils.js'
+import { compareNumbers } from './utils.js';
 
 const guessButton = document.getElementById('guess-submit-button');
 const newNumberButton = document.getElementById('new-number-button');
@@ -25,8 +25,8 @@ let loseSpan = document.getElementById('games-lost-span');
 // initialize state
 
 let correctNumber = Math.ceil(Math.random() * 20);
-    correctNumberSpan.textContent = correctNumber;
-    console.log(correctNumber);
+correctNumberSpan.textContent = correctNumber;
+console.log(correctNumber);
 
 let triesLeft = Number(4);
 triesLeftSpan.textContent = triesLeft;
@@ -59,11 +59,11 @@ guessButton.addEventListener('click', () => {
     }
     else if (comparision === -1) {
         highOrLow.style.display = 'flex';
-        highOrLow.textContent = "Too Low";
+        highOrLow.textContent = 'Too Low';
     }
     else if (comparision === 1) {
         highOrLow.style.display = 'flex';
-        highOrLow.textContent = "Too High";
+        highOrLow.textContent = 'Too High';
     }
 
     if (triesLeft === 0 && comparision !== 0) {
@@ -74,7 +74,7 @@ guessButton.addEventListener('click', () => {
         loseCounter++;
     }
 
-})
+});
 
 newNumberButton.addEventListener('click', () => {
     triesLeft = Number(4);
@@ -94,4 +94,4 @@ newNumberButton.addEventListener('click', () => {
     loseNum.textContent = loseCounter;
     winSpan.style.display = 'flex';
     loseSpan.style.display = 'flex';
-}) 
+}); 
