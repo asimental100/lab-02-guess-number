@@ -1,0 +1,65 @@
+
+body {
+    --color1: hsla(210, 69%, 23%, 1);
+    --color2: hsla(182, 97%, 76%, 1);
+    --color3: hsla(158, 9%, 85%, 1);
+    --color4: hsla(18, 4%, 96%, 1);
+    --color5: hsla(30, 29%, 96%, 1);
+    
+    height: 100%;
+    width: 100%;
+    
+    font-family: 'Titillium Web', sans-serif;
+    background-color: var(--color1);
+}
+
+header {
+    font-size: 1.75rem;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    background-color: var(--color2);
+    width: 1000px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px var(--color4);
+}
+
+#new-number-button {
+    display: none;
+}
+
+#high-or-low-span {
+    display: none;
+}
+
+#win-lose-section {
+    display: none;
+}
+
+#winner-header {
+    display: none;
+}
+
+#loser-header {
+    display: none;
+}
+
+#games-won-span {
+    display: none;
+}
+
+#games-lost-span {
+    display: none;
+}
